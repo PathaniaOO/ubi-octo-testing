@@ -1,13 +1,17 @@
 import pytest
 from sources.shapes import Rectangle
 
-
 @pytest.fixture
-
 def my_rectangle():
-    return Rectangle(10,5)
+    """
+    Fixture providing a valid Rectangle instance.
+    """
+    return Rectangle(10, 5)
 
 @pytest.fixture
-
 def weird_rectangle():
-    return Rectangle(5,6)
+    """
+    Fixture providing an object that is NOT a Rectangle.
+    Used to test inequality behavior.
+    """
+    return "not a rectangle"
