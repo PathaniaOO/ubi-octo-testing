@@ -1,4 +1,4 @@
-import pytest
+import pytest,time
 from sources.my_functions import first_function,second_function,mul
 
 def test_add():
@@ -21,3 +21,19 @@ def test_mul():
     result = mul(10,2)
     assert result == 20
 
+#MARK
+@pytest.mark.slow
+def test_very_slow():
+    time.sleep(5)
+    result = second_function(10,5)
+    assert result == 2
+
+
+@pytest.mark.skip(reason = "This feature is currently broken")#skip a test
+def test_add():
+    assert first_function(1,3) == 4
+    
+    
+@pytest.mark.xfail(reason = "We know we cant divide by zero")
+def test_divide_zero_broken():
+    second_function(20,0)

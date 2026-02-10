@@ -10,3 +10,4 @@ def mul(one_number,two_number):
     if one_number == 0 or two_number == 0:
         raise ValueError
     return one_number * two_number
+
